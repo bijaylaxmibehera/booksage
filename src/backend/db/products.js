@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { v4 as uuid } from 'uuid'
 
 /**
  * Product Database can be added here.
@@ -8,23 +8,114 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    title: "You Can WIN",
-    author: "Shiv Khera",
-    price: "5000",
-    categoryName: "non-fiction",
+    img: 'https://rukminim1.flixcart.com/image/832/832/xif0q/book/h/l/7/the-hidden-hindu-original-imagjvn37ythf2z3.jpeg?q=70',
+    name: 'The Hidden Hindu',
+    author: 'Akshat Gupta',
+    price: '205',
+    originalPrice: '250',
+    isBestSeller: true,
+    categoryName: 'fiction',
+    rating: 4.7
   },
   {
     _id: uuid(),
-    title: "You are Winner",
-    author: "Junaid Qureshi",
-    price: "3000",
-    categoryName: "horror",
+    img: 'https://rukminim1.flixcart.com/image/832/832/khtghow0-0/book/1/9/o/think-like-a-monk-original-imafxr36mwua29uj.jpeg?q=70',
+    name: 'Think Like a Monk',
+    author: 'Jay Shetty',
+    price: '289',
+    originalPrice: '459',
+    isBestSeller: false,
+    categoryName: 'self-help',
+    rating: 4.0
   },
   {
     _id: uuid(),
-    title: "Think and Grow Rich",
-    author: "Shiv Khera",
-    price: "1000",
-    categoryName: "fiction",
+    img: 'https://rukminim1.flixcart.com/image/832/832/kkec4280/book/2/b/8/the-girl-in-room-105-original-imafzr6nczgggedw.jpeg?q=70',
+    name: 'The girl in room 105',
+    author: 'Chetan Bhagat',
+    price: '189',
+    originalPrice: '199',
+    isBestSeller: false,
+    categoryName: 'fiction',
+    rating: 4.5
   },
-];
+  {
+    _id: uuid(),
+    img: 'https://rukminim1.flixcart.com/image/832/832/ku5ufm80/book/l/0/j/amar-shaheed-bhagat-singh-original-imag7c8ayf9twzhh.jpeg?q=70',
+    name: 'Amar Shaheed Bhagat Singh ',
+    author: 'Mahesh Sharma',
+    price: '187',
+    originalPrice: '250',
+    isBestSeller: true,
+    categoryName: 'non-fiction',
+    rating: 4.5
+  },
+  {
+    _id: uuid(),
+    img: 'https://rukminim1.flixcart.com/image/832/832/kqidx8w0/book/y/x/s/the-secret-garden-original-imag4gf7gt6dkxrm.jpeg?q=70',
+    name: 'The Secret Garden',
+    author: ' Burnett Frances Hodgson',
+    price: '139',
+    originalPrice: '199',
+    isBestSeller: false,
+    categoryName: 'fiction',
+    rating: 4.5
+  },
+  {
+    _id: uuid(),
+    img: 'https://rukminim1.flixcart.com/image/832/832/xif0q/regionalbooks/u/1/w/the-psychology-of-money-paperback-15-july-2021-original-imag6z2zzvjrgtn6.jpeg?q=70',
+    name: 'The Psychology of Money',
+    author: 'Morgan Housel',
+    price: '165',
+    originalPrice: '388',
+    isBestSeller: true,
+    categoryName: 'self-help',
+    rating: 4.8
+  },
+  {
+    _id: uuid(),
+    img: 'https://rukminim1.flixcart.com/image/832/832/xif0q/book/x/d/z/the-blue-umbrella-original-imagmpj4ycrhc3xe.jpeg?q=70',
+    name: 'The Blue Umbrella',
+    author: 'Bond Ruskin',
+    price: '95',
+    originalPrice: '150',
+    isBestSeller: false,
+    categoryName: 'fiction',
+    rating: 4.2
+  },
+
+  {
+    _id: uuid(),
+    img: 'https://rukminim1.flixcart.com/image/832/832/kqidx8w0/book/x/n/y/the-diary-of-a-young-girl-original-imag4gg9afh4zw6f.jpeg?q=70',
+    name: 'The Diary of a Young Girl ',
+    author: 'Anne Frank',
+    price: '97',
+    originalPrice: '185',
+    isBestSeller: true,
+    categoryName: 'non-fiction',
+    rating: 4.7
+  },
+  {
+    _id: uuid(),
+    img: 'https://rukminim1.flixcart.com/image/832/832/kufuikw0/book/x/b/y/three-thousand-stitches-original-imag7jpzffnzr3wb.jpeg?q=70',
+    name: 'Three Thousand Stitches',
+    author: 'Sudha Murty',
+    price: '190',
+    originalPrice: '250',
+    isBestSeller: true,
+    categoryName: 'non-fiction',
+    rating: 4.6
+  }
+
+  // {
+  //   _id: uuid(),
+  //   img:"",
+  //   name: "",
+  //   author: "",
+  //   price: "",
+  //   originalPrice:"",
+  //   isBestSeller:,
+  //   categoryName: "",
+  //   rating:,
+  // },
+]
