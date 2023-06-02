@@ -6,6 +6,10 @@ export function Filters () {
   const { categories } = useContext(DataContext);
   const stars=[1,2,3,4];
 
+  const handleClearFilter=()=>{
+    dispatchFilters({type:'CLEAR_ALL_FILTERS'})
+  }
+
   const handleCategoryChange=(itemCategory)=>{
     if (filters.category.includes(itemCategory)) {
         dispatchFilters({ type: 'REMOVE_CATEGORY', payload: itemCategory});
@@ -22,6 +26,10 @@ export function Filters () {
   return (
     <>
       <p>Filters</p>
+      {/* CLEAR FILTER BUTTON */}
+      <div>
+        <button onClick={handleClearFilter}>Clear filters</button>
+      </div>
       {/* CATEGORY FILTER */}
       <div className='filter-by-category'>
         <p>Category</p>
