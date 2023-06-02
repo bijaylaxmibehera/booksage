@@ -1,5 +1,5 @@
 import { CalculateDiscount } from '../../utils/CalculateDiscount'
-import AddToCart from '../Services/CartManager'
+import AddToCart from '../Services/AddToCart'
 import './ProductCard.css'
 export function ProductCard ({ product }) {
   const {

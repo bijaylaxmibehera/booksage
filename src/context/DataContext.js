@@ -17,9 +17,7 @@ const reducer = (state, action) => {
 
 export function DataProvider ({ children }) {
   const [state, dispatch] = useReducer(reducer, {
-    products: [],
-    // cart: [],
-    // wishlist: []
+    products: []
   })
   
   useEffect(()=>{
@@ -34,9 +32,16 @@ export function DataProvider ({ children }) {
    }
   getProducts();
   },[])
+
+  const categories=state.products.reduce((acc,currProd)=>{
+    if(!acc.includes(currProd.category)){
+      acc.push(currProd.category);
+    }
+    return acc;
+  },[])
   return (
     <>
-      <DataContext.Provider value={{state, dispatch}}>{children}</DataContext.Provider>
+      <DataContext.Provider value={{state, dispatch,categories}}>{children}</DataContext.Provider>
     </>
   )
 }

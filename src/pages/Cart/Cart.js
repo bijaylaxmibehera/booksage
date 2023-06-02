@@ -45,7 +45,7 @@ export function Cart() {
                 <div
                   style={{
                     display: 'flex',
-                    justifyContent: 'space-evenly',
+                    justifyContent: 'space-between',
                     fontWeight: 'bold',
                     width: '100%',
                   }}

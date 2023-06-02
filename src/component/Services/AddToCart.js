@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { CartContext } from '../../';
+import { CartContext } from '../..';
 import { NavLink } from 'react-router-dom';
 
 const AddToCart = ({ product }) => {

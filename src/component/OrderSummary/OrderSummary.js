@@ -27,15 +27,15 @@ export function OrderSummary () {
         <p className='div-heading'>Price Details</p>
         <hr />
         <div className='price-details'>
-            <p>Price ({totalItems} items):</p>
+            <p>Price ({totalItems} items) :</p>
             <p>₹{totalPrice}</p>
         </div>
         <div className='price-details'>
-            <p>Discount:</p>
-            <p>-₹{totalDiscount}</p>
+            <p>Discount : </p>
+            <p>- ₹{totalDiscount}</p>
         </div>
         <div className='price-details'>
-            <p>Delivery charges:</p>
+            <p>Delivery charges : </p>
             <p>₹{deliveryCharges}</p>
         </div>
         <hr />

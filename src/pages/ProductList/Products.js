@@ -1,28 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext ,useEffect} from 'react'
 import { ProductCard } from '../../component/Product/ProductCard'
 import { DataContext, FilterContext } from '../..'
 import './Products.css'
+import { Filters } from '../../component/Filters/Filters'
 
 export function Products () {
-  const { state } = useContext(DataContext)
+  const { state} = useContext(DataContext)
   const { filters } = useContext(FilterContext)
-
+ 
   const filteredProducts = state.products
     .filter(
       item =>
         (filters.category.length === 0 ||
-          filters.category.includes(item.category)) &&
-        (filters.search.length === 0 ||
-          item.name.toLowerCase().includes(filters.search))
+          filters.category.includes(item.category))
     )
-    .sort((a, b) =>
-      filters.priceSort === 'asc' ? a.price - b.price : b.price - a.price
-    )
+ 
 
   return (
     <>
+      <Filters/>
       <div className='responsive-grid'>
-        {filteredProducts.map(product => (
+        {filteredProducts .map(product => (
           <ProductCard key={product._id} product={product} />
         ))}
       </div>
