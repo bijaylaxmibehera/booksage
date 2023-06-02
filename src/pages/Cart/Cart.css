@@ -19,13 +19,13 @@ img {
 .product-quantity {
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .product-quantity button {
     background-color: white;
     color: black;
-    margin: 10px 20px;
+    margin: 10px 15px;
     border: 0.5px solid;
     padding: 5px 10px;
 }

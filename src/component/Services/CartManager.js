@@ -2,16 +2,14 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../';
 import { NavLink } from 'react-router-dom';
 
-const ProductsInCart = ({ product }) => {
+const AddToCart = ({ product }) => {
   const { cartState, cartDispatch } = useContext(CartContext);
 
   const handleAddToCart = () => {
     cartDispatch({ type: 'ADD_TO_CART', payload: product });
   };
 
-//   const handleRemoveFromCart = () => {
-//     cartDispatch({ type: 'REMOVE_FROM_CART', payload: product });
-//   };
+
 
   const itemInCart = cartState.items.find((item) => item.id === product.id);
 
@@ -26,4 +24,4 @@ const ProductsInCart = ({ product }) => {
   );
 };
 
-export default ProductsInCart;
+export default AddToCart;

@@ -1,7 +1,9 @@
 import { useContext } from 'react'
 import { CartContext } from '../../'
+import { CalculateDiscount } from '../../utils/CalculateDiscount'
 
 import "./Cart.css"
+import { OrderSummary } from '../../component/OrderSummary/OrderSummary'
 
 export function Cart () {
   const { cartState, cartDispatch } = useContext(CartContext)
@@ -37,6 +39,7 @@ export function Cart () {
               <p className='disc-price'>₹{price}</p>
               <p className='actual-price'>₹{originalPrice}</p>
               </div>
+              <p className="price-percentage"><CalculateDiscount price={price} originalPrice={originalPrice}/>% Off</p>
               <p className='product-quantity'>
                 Quantity:
                 <button onClick={()=>handleDecreaseQuantity(item)}>-</button>
@@ -47,11 +50,11 @@ export function Cart () {
               <button onClick={()=>handleRemoveFromCart(item)}>Remove from cart</button>
               <button>Move to wishlist</button>
               </div>
-             
             </div>
           </div>
         )
       })}
+      <OrderSummary />
     </>
   )
 }

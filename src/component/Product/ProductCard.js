@@ -1,4 +1,5 @@
-import ProductsInCart from '../Services/CartManager'
+import { CalculateDiscount } from '../../utils/CalculateDiscount'
+import AddToCart from '../Services/CartManager'
 import './ProductCard.css'
 export function ProductCard ({ product }) {
   const {
@@ -36,9 +37,9 @@ export function ProductCard ({ product }) {
             <p className='disc-price'>₹{price}</p>
             <p className='actual-price'>₹{originalPrice}</p>
           </div>
+          <p className="price-percentage"><CalculateDiscount price={price} originalPrice={originalPrice}/>% Off</p>
         </div>
-        {/* <button className='btn default add-cart'>Add to cart</button> */}
-        <ProductsInCart product={product}/>
+        <AddToCart product={product}/>
       </div>
     </>
   )
