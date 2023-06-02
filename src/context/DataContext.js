@@ -6,10 +6,10 @@ const reducer = (state, action) => {
   switch (action.type) {
     case 'SET_PRODUCTS':
       return { ...state, products: action.payload }
-    case 'SET_CART':
-      return { ...state, cart: action.payload }
-    case 'SET_WISHLIST':
-      return { ...state, wishlist: action.payload }
+    // case 'SET_CART':
+    //   return { ...state, cart: action.payload }
+    // case 'SET_WISHLIST':
+    //   return { ...state, wishlist: action.payload }
     default:
       return state
   }
@@ -18,8 +18,8 @@ const reducer = (state, action) => {
 export function DataProvider ({ children }) {
   const [state, dispatch] = useReducer(reducer, {
     products: [],
-    cart: [],
-    wishlist: []
+    // cart: [],
+    // wishlist: []
   })
   
   useEffect(()=>{

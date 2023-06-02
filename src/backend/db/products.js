@@ -14,7 +14,7 @@ export const products = [
     price: '205',
     originalPrice: '250',
     isBestSeller: true,
-    categoryName: 'fiction',
+    category: 'fiction',
     rating: 4.7
   },
   {
@@ -25,7 +25,7 @@ export const products = [
     price: '289',
     originalPrice: '459',
     isBestSeller: false,
-    categoryName: 'self-help',
+    category: 'self-help',
     rating: 4.0
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     price: '189',
     originalPrice: '199',
     isBestSeller: false,
-    categoryName: 'fiction',
+    category: 'fiction',
     rating: 4.5
   },
   {
@@ -47,7 +47,7 @@ export const products = [
     price: '187',
     originalPrice: '250',
     isBestSeller: true,
-    categoryName: 'non-fiction',
+    category: 'non-fiction',
     rating: 4.5
   },
   {
@@ -58,7 +58,7 @@ export const products = [
     price: '139',
     originalPrice: '199',
     isBestSeller: false,
-    categoryName: 'fiction',
+    category: 'fiction',
     rating: 4.5
   },
   {
@@ -69,7 +69,7 @@ export const products = [
     price: '165',
     originalPrice: '388',
     isBestSeller: true,
-    categoryName: 'self-help',
+    category: 'self-help',
     rating: 4.8
   },
   {
@@ -80,7 +80,7 @@ export const products = [
     price: '95',
     originalPrice: '150',
     isBestSeller: false,
-    categoryName: 'fiction',
+    category: 'fiction',
     rating: 4.2
   },
 
@@ -92,7 +92,7 @@ export const products = [
     price: '97',
     originalPrice: '185',
     isBestSeller: true,
-    categoryName: 'non-fiction',
+    category: 'non-fiction',
     rating: 4.7
   },
   {
@@ -103,7 +103,7 @@ export const products = [
     price: '190',
     originalPrice: '250',
     isBestSeller: true,
-    categoryName: 'non-fiction',
+    category: 'non-fiction',
     rating: 4.6
   }
 
