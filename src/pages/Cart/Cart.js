@@ -1,15 +1,15 @@
-import { useContext } from 'react'
-import { CartContext } from '../../'
-import { CalculateDiscount } from '../../utils/CalculateDiscount'
+import { useContext } from 'react';
+import { CartContext } from '../../';
+import { CalculateDiscount } from '../../utils/CalculateDiscount';
 
-import "./Cart.css"
-import { OrderSummary } from '../../component/OrderSummary/OrderSummary'
+import "./Cart.css";
+import { OrderSummary } from '../../component/OrderSummary/OrderSummary';
 
-export function Cart () {
-  const { cartState, cartDispatch } = useContext(CartContext)
-  const cartItem = cartState.items
+export function Cart() {
+  const { cartState, cartDispatch } = useContext(CartContext);
+  const cartItem = cartState.items;
 
-    const handleRemoveFromCart = (item) => {
+  const handleRemoveFromCart = (item) => {
     cartDispatch({ type: 'REMOVE_FROM_CART', payload: item });
   };
 
@@ -26,35 +26,58 @@ export function Cart () {
   return (
     <>
       <h3 style={{ textAlign: 'center' }}>My Cart({cartItem.length})</h3>
-      {cartItem.map(item => {
-        const { _id: id, img, name, price, originalPrice ,quantity} = item
-        return (
-          <div key={id} className='product-card'>
-            <div className='product-img'>
-              <img src={img} alt={name} />
-            </div>
-            <div className='product-details'>
-              <h3>{name}</h3>
-              <div style={{display:"flex",justifyContent:"space-evenly", fontWeight:"bold", width:"100%"}} >
-              <p className='disc-price'>₹{price}</p>
-              <p className='actual-price'>₹{originalPrice}</p>
+      {cartItem.length === 0 ? (
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",height:"70vh", fontWeight:"var(--font-semiBold)", fontSize:"1.2rem"}}>
+        <p> Hey your cart looks empty. Please add some item...</p>
+        </div>
+        
+       
+      ) : (
+        cartItem.map((item) => {
+          const { _id: id, img, name, price, originalPrice, quantity } = item;
+          return (
+            <div key={id} className='product-card'>
+              <div className='product-img'>
+                <img src={img} alt={name} />
               </div>
-              <p className="price-percentage"><CalculateDiscount price={price} originalPrice={originalPrice}/>% Off</p>
-              <p className='product-quantity'>
-                Quantity:
-                <button onClick={()=>handleDecreaseQuantity(item)}>-</button>
-                <span>{quantity}</span>
-                <button onClick={()=>handleIncreaseQuantity(item)}>+</button>
-              </p>
-              <div className='product-manage-btn'>
-              <button onClick={()=>handleRemoveFromCart(item)}>Remove from cart</button>
-              <button>Move to wishlist</button>
+              <div className='product-details'>
+                <h3>{name}</h3>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-evenly',
+                    fontWeight: 'bold',
+                    width: '100%',
+                  }}
+                >
+                  <p className='disc-price'>₹{price}</p>
+                  <p className='actual-price'>₹{originalPrice}</p>
+                </div>
+                <p className='price-percentage'>
+                  <CalculateDiscount
+                    price={price}
+                    originalPrice={originalPrice}
+                  />
+                  % Off
+                </p>
+                <p className='product-quantity'>
+                  Quantity:
+                  <button onClick={() => handleDecreaseQuantity(item)}>-</button>
+                  <span>{quantity}</span>
+                  <button onClick={() => handleIncreaseQuantity(item)}>+</button>
+                </p>
+                <div className='product-manage-btn'>
+                  <button onClick={() => handleRemoveFromCart(item)}>
+                    Remove from cart
+                  </button>
+                  <button>Move to wishlist</button>
+                </div>
               </div>
             </div>
-          </div>
-        )
-      })}
-      <OrderSummary />
+          );
+        })
+      )}
+      {cartItem.length !== 0 && <OrderSummary />}
     </>
-  )
+  );
 }

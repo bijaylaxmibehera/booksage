@@ -3,3 +3,38 @@
     padding: 0;
     box-sizing: border-box;
 }
+.order-summary{
+ background-color: white;
+}
+.price-details{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+hr{
+    margin: 10px 0;
+}
+.div-heading, .total-amount{
+  font-weight: var(--font-semiBold);
+}
+.order-btn{
+    background-color: rgb(0, 157, 255);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+@media screen and (min-width:768px){
+    
+}
+
+@media screen and (min-width:1024px){
+    .order-summary{
+        border: 1px solid black;
+        max-width:35vw;
+        padding: 20px;
+    }
+}
