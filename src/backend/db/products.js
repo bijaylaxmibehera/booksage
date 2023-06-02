@@ -37,7 +37,7 @@ export const products = [
     originalPrice: '199',
     isBestSeller: false,
     category: 'fiction',
-    rating: 4.5
+    rating: 3.5
   },
   {
     _id: uuid(),
@@ -59,7 +59,7 @@ export const products = [
     originalPrice: '199',
     isBestSeller: false,
     category: 'fiction',
-    rating: 4.5
+    rating: 1.5
   },
   {
     _id: uuid(),
@@ -81,7 +81,7 @@ export const products = [
     originalPrice: '150',
     isBestSeller: false,
     category: 'fiction',
-    rating: 4.2
+    rating: 3.2
   },
 
   {
@@ -91,9 +91,9 @@ export const products = [
     author: 'Anne Frank',
     price: '97',
     originalPrice: '185',
-    isBestSeller: true,
+    isBestSeller: false,
     category: 'non-fiction',
-    rating: 4.7
+    rating: 2.7
   },
   {
     _id: uuid(),
@@ -102,7 +102,7 @@ export const products = [
     author: 'Sudha Murty',
     price: '190',
     originalPrice: '250',
-    isBestSeller: true,
+    isBestSeller: false,
     category: 'non-fiction',
     rating: 4.6
   }

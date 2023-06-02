@@ -33,7 +33,7 @@ export const FilterProvider = ({ children }) => {
   const [filters, dispatchFilters] = useReducer(handleFilters, {
     category: [],
     priceSort: '',
-    rating: 0,
+    rating: '',
     search: ''
   })
 

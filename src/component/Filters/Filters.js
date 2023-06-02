@@ -4,6 +4,7 @@ import { FilterContext, DataContext } from '../../'
 export function Filters () {
   const { filters, dispatchFilters } = useContext(FilterContext)
   const { categories } = useContext(DataContext);
+  const stars=[1,2,3,4];
 
   const handleCategoryChange=(itemCategory)=>{
     if (filters.category.includes(itemCategory)) {
@@ -12,6 +13,10 @@ export function Filters () {
         dispatchFilters({ type: 'ADD_CATEGORY', payload:itemCategory});
       }
   }
+
+  const handleFilterByRaiting = (rating) => {
+    dispatchFilters({ type: 'ADD_RATING', payload: rating });
+  };
 
   console.log(categories)
   return (
@@ -28,6 +33,21 @@ export function Filters () {
             </label>
           )
         })}
+        {/* FILTER BY RATING */}
+        {stars.map((rating)=>(
+            <li>
+                <label>
+                    <input
+                    type='radio'
+                    name='rating'
+                    value=""
+                    checked={filters.rating === rating}
+                    onChange={()=>handleFilterByRaiting(rating)}
+                    />
+                    {rating} Star and above  
+                </label>
+            </li>
+        ))}
       </div>
     </>
   )
