@@ -9,7 +9,10 @@ export function Filters () {
   const handleClearFilter=()=>{
     dispatchFilters({type:'CLEAR_ALL_FILTERS'})
   }
-
+ const handleSearch=(e)=>{
+    const userInput=e.target.value;
+    dispatchFilters({type: 'ADD_SEARCH',payload:userInput});
+ }
   const handleCategoryChange=(itemCategory)=>{
     if (filters.category.includes(itemCategory)) {
         dispatchFilters({ type: 'REMOVE_CATEGORY', payload: itemCategory});
@@ -29,6 +32,10 @@ export function Filters () {
       {/* CLEAR FILTER BUTTON */}
       <div>
         <button onClick={handleClearFilter}>Clear filters</button>
+      </div>
+      {/*SEARCH PRODUCTS */}
+      <div className='seach-products'>
+          <input type='text'  name="" id="" placeholder='search products' onChange={handleSearch}/>
       </div>
       {/* CATEGORY FILTER */}
       <div className='filter-by-category'>

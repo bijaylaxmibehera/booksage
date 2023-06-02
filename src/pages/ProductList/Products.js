@@ -12,7 +12,7 @@ export function Products () {
     item =>
       (filters.category.length === 0 ||
         filters.category.includes(item.category)) &&
-        (item.rating >= filters.rating)
+        (item.rating >= filters.rating)&& (filters.search.length === 0 || item.name.toLowerCase().includes(filters.search))
   )
  
 
