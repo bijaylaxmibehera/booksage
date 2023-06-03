@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
-import { createContext,  useReducer } from 'react'
-
+import { createContext, useReducer } from 'react'
 
 export const FilterContext = createContext()
 
 export const FilterProvider = ({ children }) => {
-
   const handleFilters = (state, action) => {
     switch (action.type) {
       case 'ADD_CATEGORY':
@@ -25,6 +23,8 @@ export const FilterProvider = ({ children }) => {
         return { ...state, search: action.payload.toLowerCase() }
       case 'CLEAR_ALL_FILTERS':
         return { category: [], priceSort: '', rating: 0, search: '' }
+      case 'ADD_PRICE_RANGE':
+        return { ...state, priceRange: action.payload }
       default:
         return state
     }
@@ -34,7 +34,8 @@ export const FilterProvider = ({ children }) => {
     category: [],
     priceSort: '',
     rating: '',
-    search: ''
+    search: '',
+    priceRange: " "
   })
 
   return (

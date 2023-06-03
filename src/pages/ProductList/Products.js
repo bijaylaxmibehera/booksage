@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { ProductCard } from '../../component/Product/ProductCard'
 import { DataContext, FilterContext } from '../..'
 import './Products.css'
@@ -10,11 +10,15 @@ export function Products () {
 
   const filteredProducts = state.products.filter(
     item =>
-      (filters.category.length === 0 ||
+      filters.priceRange === 0 ||
+      ((filters.category.length === 0 ||
         filters.category.includes(item.category)) &&
-        (item.rating >= filters.rating)&& (filters.search.length === 0 || item.name.toLowerCase().includes(filters.search))
+        (filters.rating === '' || item.rating >= filters.rating) &&
+        (filters.priceRange === 0 ||
+          (item.price <= filters.priceRange && item.price >= 0)) &&
+        (filters.search.length === 0 ||
+          item.name.toLowerCase().includes(filters.search)))
   )
- 
 
   return (
     <>
