@@ -13,8 +13,7 @@ export function Filters () {
 
   const handlePriceChange = event => {
     const value = event.target.value
-    dispatchFilters({ type: 'ADD_PRICE_RANGE', payload:value })
-    
+    dispatchFilters({ type: 'ADD_PRICE_RANGE', payload: value })
   }
 
   const handleSearch = e => {
@@ -27,6 +26,10 @@ export function Filters () {
     } else {
       dispatchFilters({ type: 'ADD_CATEGORY', payload: itemCategory })
     }
+  }
+
+  const handlePriceSort=(sortType)=>{
+    dispatchFilters({type : "ADD_PRICE_SORT", payload : sortType})
   }
 
   const handleFilterByRaiting = rating => {
@@ -82,7 +85,31 @@ export function Filters () {
             </label>
           )
         })}
-        {/* FILTER BY RATING */}
+      </div>
+      {/* SORT PRODUCT BY PRICE */}
+      <div className='sort-by-price'>
+        <p>Price</p>
+        <div>
+          <input
+            type='radio'
+            id='asc'
+            checked={filters.priceSort === 'asc'}
+            onClick={() => handlePriceSort('asc')}
+            name='sortbyprice'
+          />
+          <label htmlFor='asc'>Low to High</label>
+          <input
+            type='radio'
+            id='dsc'
+            checked={filters.priceSort === 'dsc'}
+            onClick={() => handlePriceSort('dsc')}
+            name='sortbyprice'
+          />
+          <label htmlFor='dsc'>High to Low</label>
+        </div>
+      </div>
+      {/* FILTER BY RATING */}
+      <div className='filter-by-rating'>
         {stars.map(rating => (
           <li>
             <label>
