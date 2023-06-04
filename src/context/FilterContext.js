@@ -22,7 +22,7 @@ export const FilterProvider = ({ children }) => {
       case 'ADD_SEARCH':
         return { ...state, search: action.payload.toLowerCase() }
       case 'CLEAR_ALL_FILTERS':
-        return { category: [], priceSort: '', rating: 0, search: '' }
+        return { category: [], priceSort: '', rating: 0, search: '' ,priceRange:500}
       case 'ADD_PRICE_RANGE':
         return { ...state, priceRange: action.payload }
       default:
@@ -35,7 +35,7 @@ export const FilterProvider = ({ children }) => {
     priceSort: '',
     rating: '',
     search: '',
-    priceRange: " "
+    priceRange: 500
   })
 
   return (

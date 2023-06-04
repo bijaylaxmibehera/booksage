@@ -1,5 +1,6 @@
 import { useContext } from 'react';
-import { CartContext } from '../../';
+import { NavLink } from 'react-router-dom';
+import { CartContext ,WishlistContext} from '../../';
 import { CalculateDiscount } from '../../utils/CalculateDiscount';
 
 import "./Cart.css";
@@ -7,6 +8,7 @@ import { OrderSummary } from '../../component/OrderSummary/OrderSummary';
 
 export function Cart() {
   const { cartState, cartDispatch } = useContext(CartContext);
+  const {wishlistState,wishlistDispatch}=useContext(WishlistContext);
   const cartItem = cartState.items;
 
   const handleRemoveFromCart = (item) => {
@@ -22,6 +24,11 @@ export function Cart() {
   const handleIncreaseQuantity = (item) => {
     cartDispatch({ type: 'INCREASE_QUANTITY', payload: item });
   };
+
+  const handleMoveToWishlist=(item)=>{
+    cartDispatch({ type: 'REMOVE_FROM_CART', payload: item });
+    wishlistDispatch({type:'ADD_TO_WISHLIST',payload:item})
+  }
 
   return (
     <>
@@ -70,7 +77,18 @@ export function Cart() {
                   <button onClick={() => handleRemoveFromCart(item)}>
                     Remove from cart
                   </button>
-                  <button>Move to wishlist</button>
+                  {wishlistState.wishlists.find((wishlistItem)=>wishlistItem.id===item.id)? (<NavLink to='/wishlist'>
+                    <button
+                      className='product-manage-btn'
+                      style={{backgroundColor:"var(--link)"}}
+                    >
+                      Already in wishlist
+                    </button>
+                  </NavLink>
+                ) : (
+                  <button className='product-manage-btn' onClick={()=>handleMoveToWishlist(item)} >Move to wishlist</button>
+                )}
+                  {/* <button onClick={()=>handleMoveToWishlist(item)}>Move to wishlist</button> */}
                 </div>
               </div>
             </div>

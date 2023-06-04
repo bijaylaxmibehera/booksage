@@ -8,11 +8,11 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { DataContext, DataProvider } from './context/DataContext'
 import { FilterContext, FilterProvider } from './context/FilterContext'
 import { CartContext, CartProvider } from './context/CartContext'
-
+import { WishlistContext, WishlistProvider } from './context/WishlistContext'
 // Call make Server
 makeServer()
 
-export { DataContext, FilterContext, CartContext }
+export { DataContext, FilterContext, CartContext, WishlistContext }
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,7 +20,9 @@ ReactDOM.render(
       <DataProvider>
         <FilterProvider>
           <CartProvider>
-            <App />
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
           </CartProvider>
         </FilterProvider>
       </DataProvider>

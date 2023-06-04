@@ -15,8 +15,9 @@ export function Products () {
         ((filters.category.length === 0 ||
           filters.category.includes(item.category)) &&
           (filters.rating === '' || item.rating >= filters.rating) &&
-          (filters.priceRange === 0 ||
-            (item.price <= filters.priceRange && item.price >= 0)) &&
+          // (filters.priceRange === 0 ||
+          (item.price <= filters.priceRange &&
+          item.price >= 0) &&
           (filters.search.length === 0 ||
             item.name.toLowerCase().includes(filters.search)))
     )

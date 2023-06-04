@@ -1,7 +1,10 @@
+import { useContext,useState } from 'react'
 import { CalculateDiscount } from '../../utils/CalculateDiscount'
 import AddToCart from '../Services/AddToCart'
 import './ProductCard.css'
+import { WishlistContext } from '../../'
 export function ProductCard ({ product }) {
+  const {wishlistState,wishlistDispatch}=useContext(WishlistContext)
   const {
     _id: id,
     img,
@@ -12,12 +15,25 @@ export function ProductCard ({ product }) {
     isBestSeller,
     rating
   } = product
+  
+  const [isWishlistActive, setIsWishlistActive] = useState(
+    wishlistState.wishlists.some((item) => item._id === id)
+  );
+
+  const handleWishlist = () => {
+    if (isWishlistActive) {
+      wishlistDispatch({ type: 'REMOVE_FROM_WISHLIST', payload: product});
+    } else {
+      wishlistDispatch({ type: 'ADD_TO_WISHLIST', payload: product });
+    }
+    setIsWishlistActive(!isWishlistActive);
+  };
   return (
     <>
       <div key={id} className='card'>
         <img className='card-img' src={img} alt={name} />
         {isBestSeller && <span className='card-badge'>Best Seller</span>}
-        <span role='button' className='wishlist-icon'>
+        <span role='button'  className={`wishlist-icon ${isWishlistActive ? 'active' : ''}`} onClick={handleWishlist}>
           <i className='fa fa-heart' aria-hidden='true'></i>
         </span>
         <div className='card-info'>
