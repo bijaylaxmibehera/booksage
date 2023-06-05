@@ -19,6 +19,17 @@ export const products = [
   },
   {
     _id: uuid(),
+    img:"https://rukminim1.flixcart.com/image/832/832/kwnv6a80/book/z/m/6/magic-is-inside-the-crystal-original-imag9afpmpbuqz6c.jpeg?q=70",
+    name: "Magic is inside the crystal",
+    author: "Neeta Ravariya",
+    price: "99",
+    originalPrice:"200",
+    isBestSeller:false,
+    category: "horror",
+    rating:1.5,
+  },
+  {
+    _id: uuid(),
     img: 'https://rukminim1.flixcart.com/image/832/832/khtghow0-0/book/1/9/o/think-like-a-monk-original-imafxr36mwua29uj.jpeg?q=70',
     name: 'Think Like a Monk',
     author: 'Jay Shetty',
@@ -27,6 +38,17 @@ export const products = [
     isBestSeller: false,
     category: 'self-help',
     rating: 4.0
+  },
+  {
+    _id: uuid(),
+    img: 'https://rukminim1.flixcart.com/image/832/832/book/2/1/4/500-pasta-recipes-delicious-pasta-sauces-for-every-kind-of-original-imadqdmygaq2hhhs.jpeg?q=70',
+    name: '500 Pasta Recipes',
+    author: 'Valerie Ferguson',
+    price: '399',
+    originalPrice: '659',
+    isBestSeller: false,
+    category: 'recipe book',
+    rating: 3.2
   },
   {
     _id: uuid(),
@@ -105,7 +127,18 @@ export const products = [
     isBestSeller: false,
     category: 'non-fiction',
     rating: 4.6
-  }
+  },
+  {
+    _id: uuid(),
+    img:"https://rukminim1.flixcart.com/image/832/832/l45xea80/book/o/o/g/trollhunters-original-imagf439bywhf6fs.jpeg?q=70",
+    name: "Trollhunters",
+    author: "Guillermo Del Toro",
+    price: "450",
+    originalPrice:"500",
+    isBestSeller:false,
+    category: "horror",
+    rating:2.1,
+  },
 
   // {
   //   _id: uuid(),
@@ -115,7 +148,7 @@ export const products = [
   //   price: "",
   //   originalPrice:"",
   //   isBestSeller:,
-  //   categoryName: "",
+  //   category: "",
   //   rating:,
   // },
 ]
