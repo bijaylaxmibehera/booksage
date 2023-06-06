@@ -1,8 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 nav{
     display: flex;
     justify-content: space-around;
+    height: 10vh;
+    background-color: rgb(52, 74, 243);
+    align-items: center;
+   
+}
+.nav-left h3 a{
+    color: white;
+    font-size: 1.3rem;
 }
 .nav-list{
     text-decoration: none;
     margin: 0 5px;
+    color: white;
 }
+.nav-right{
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+.nav-right .login-button {
+    background: var(--darkOrange);
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 700;
+    padding: 0.5rem 1.5rem;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+.nav-right .login-button a{
+    color: #fff;
+    font-size: 0.9rem;
+}
+.badge {
+    position: relative;
+}
+.badge div {
+    display: flex;
+    background-color: red;
+    color: #fff;
+    border-radius: 999px;
+    justify-content: center;
+    align-items: center;
+    font-size: .7rem;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%,-50%);
+}
+
