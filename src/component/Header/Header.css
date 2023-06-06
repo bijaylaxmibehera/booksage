@@ -10,6 +10,9 @@ nav{
     height: 10vh;
     background-color: rgb(52, 74, 243);
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
    
 }
 .nav-left h3 a{
