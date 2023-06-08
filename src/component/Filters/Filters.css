@@ -1,0 +1,36 @@
+.filters,.price-range{
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 10px; */
+    gap: 0.5rem;
+}
+.seach-products{
+    margin: 10px 0;
+}
+
+.filters-heading{
+   font-size:1.2rem;
+   /* margin-right: 1rem; */
+}
+.clear-btn{
+    font-size: 1rem;
+    background: none;
+    border-bottom: 4px solid var(--darkOrange);
+    padding-bottom: 5px;
+}
+.filter-type{
+    font-weight: 500;
+    margin:5px 0 ;
+}
+.filter-by-category, .sort-by-price div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+ul{
+    list-style: none;
+}
+input{
+    margin-right: 5px;
+}

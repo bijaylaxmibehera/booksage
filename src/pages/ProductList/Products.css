@@ -2,3 +2,43 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
 } */
+
+.product-page {
+    display: flex;
+}
+.product-list{
+    margin-top: 1.5rem;
+}
+/* .filters-bar{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; 
+    align-items: center;
+} */
+
+@media screen and (min-width:1024px) {
+    .product-page {
+        margin-top: 1.5rem;
+        overflow-y: scroll;
+        position: relative;
+    }
+
+    .filters-bar {
+        width: 20vw;
+        padding: 20px;
+        position:sticky;
+        top: 0;
+        left: 0;
+    }
+
+    .product-list {
+        width: 80vw;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    .not-availed-products{
+        text-align: center;
+        font-size: 1.3rem;
+        padding-top: 30vh;
+    }
+}

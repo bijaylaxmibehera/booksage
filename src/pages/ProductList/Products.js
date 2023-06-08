@@ -31,7 +31,11 @@ export function Products () {
 
   return (
     <>
+    <div className='product-page'>
+      <div className='filters-bar'>
       <Filters />
+      </div>
+      <ul className='product-list'>
       {filteredProducts.length > 0 ? (
         <div className='responsive-grid'>
           {filteredProducts.map(product => (
@@ -39,8 +43,10 @@ export function Products () {
           ))}
         </div>
       ) : (
-        <p>No product available</p>
+        <p className='not-availed-products'>No product available</p>
       )}
+      </ul>
+      </div>
     </>
   )
 }

@@ -1,5 +1,6 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { FilterContext, DataContext } from '../../'
+import './Filters.css'
 
 export function Filters () {
   const { filters, dispatchFilters } = useContext(FilterContext)
@@ -28,8 +29,8 @@ export function Filters () {
     }
   }
 
-  const handlePriceSort=(sortType)=>{
-    dispatchFilters({type : "ADD_PRICE_SORT", payload : sortType})
+  const handlePriceSort = sortType => {
+    dispatchFilters({ type: 'ADD_PRICE_SORT', payload: sortType })
   }
 
   const handleFilterByRaiting = rating => {
@@ -40,24 +41,10 @@ export function Filters () {
 
   return (
     <>
-      <p>Filters</p>
       {/* CLEAR FILTER BUTTON */}
-      <div>
-        <button onClick={handleClearFilter}>Clear filters</button>
-      </div>
-      {/* PRICE RANGE SLIDER */}
-      <div className='price-range-slider'>
-        <label htmlFor='price'>Price Range:</label>
-        <input
-          type='range'
-          id='price'
-          min={0}
-          max={500}
-          value={filters.priceRange}
-          onChange={handlePriceChange}
-          className='price-input'
-        />
-        <p>{filters.priceRange}</p>
+      <div className='filters'>
+        <span className='filters-heading'>Filters</span>
+        <button onClick={handleClearFilter} className='clear-btn'>Clear filters</button>
       </div>
       {/*SEARCH PRODUCTS */}
       <div className='seach-products'>
@@ -69,9 +56,28 @@ export function Filters () {
           onChange={handleSearch}
         />
       </div>
+      {/* PRICE RANGE SLIDER */}
+      <div className='price-range-slider'>
+        <p className='price filter-type'>Price Range:</p>
+        <div className='price-range'>
+          <p>50</p>
+          <p>500</p>
+          <p>1000</p>
+        </div>
+        <input
+          type='range'
+          name='rangeInput'
+          className='slider price-input'
+          min='0'
+          max='1000'
+          value={filters.priceRange}
+          onChange={handlePriceChange}
+        />
+      </div>
+      
       {/* CATEGORY FILTER */}
       <div className='filter-by-category'>
-        <p>Category</p>
+        <p className='filter-type'>Category: </p>
         {categories.map(itemCategory => {
           return (
             <label>
@@ -88,28 +94,34 @@ export function Filters () {
       </div>
       {/* SORT PRODUCT BY PRICE */}
       <div className='sort-by-price'>
-        <p>Price</p>
+        <p className='filter-type'>Price:</p>
         <div>
-          <input
-            type='radio'
-            id='asc'
-            checked={filters.priceSort === 'asc'}
-            onClick={() => handlePriceSort('asc')}
-            name='sortbyprice'
-          />
-          <label htmlFor='asc'>Low to High</label>
-          <input
-            type='radio'
-            id='dsc'
-            checked={filters.priceSort === 'dsc'}
-            onClick={() => handlePriceSort('dsc')}
-            name='sortbyprice'
-          />
-          <label htmlFor='dsc'>High to Low</label>
+          <label htmlFor='asc'>
+            <input
+              type='radio'
+              id='asc'
+              checked={filters.priceSort === 'asc'}
+              onClick={() => handlePriceSort('asc')}
+              name='sortbyprice'
+            />
+            Low to High
+          </label>
+          <label htmlFor='dsc'>
+            <input
+              type='radio'
+              id='dsc'
+              checked={filters.priceSort === 'dsc'}
+              onClick={() => handlePriceSort('dsc')}
+              name='sortbyprice'
+            />
+            High to Low
+          </label>
         </div>
       </div>
       {/* FILTER BY RATING */}
       <div className='filter-by-rating'>
+        <p className='filter-type'>Sort by rating:</p>
+        <ul>
         {stars.map(rating => (
           <li>
             <label>
@@ -120,10 +132,12 @@ export function Filters () {
                 checked={filters.rating === rating}
                 onChange={() => handleFilterByRaiting(rating)}
               />
-              {rating} Star and above
+              {rating} <i class='fa fa-star' aria-hidden='true'></i> & above
             </label>
           </li>
         ))}
+        </ul>
+        
       </div>
     </>
   )
