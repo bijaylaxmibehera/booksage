@@ -6,6 +6,10 @@ import { Header } from "./component/Header/Header";
 import { Products } from "./pages/ProductList/Products";
 import { Cart } from "./pages/Cart/Cart";
 import { Wishlist } from "./pages/Wishlist/Wishlist";
+import { Login } from "./pages/Login/Login";
+import { Signup } from "./pages/SignUp/Signup";
+
+
 
 
 function App() {
@@ -18,7 +22,9 @@ function App() {
      <Route path="/products" element={<Products/>} />
      <Route path="/wishlist" element={<Wishlist/>} />
      <Route path="/cart" element={<Cart/>}/>
-
+     <Route path="/login" element={<Login/>}/>
+     <Route path="/signup" element={<Signup/>}/>
+     
      </Routes>
     </div>
   );

@@ -9,14 +9,17 @@ import { DataContext, DataProvider } from './context/DataContext'
 import { FilterContext, FilterProvider } from './context/FilterContext'
 import { CartContext, CartProvider } from './context/CartContext'
 import { WishlistContext, WishlistProvider } from './context/WishlistContext'
+import { AuthConext,AuthProvider } from './context/AuthContext'
+
 // Call make Server
 makeServer()
 
-export { DataContext, FilterContext, CartContext, WishlistContext }
+export { DataContext, FilterContext, CartContext, WishlistContext ,AuthConext}
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+    <AuthProvider>
       <DataProvider>
         <FilterProvider>
           <CartProvider>
@@ -26,6 +29,7 @@ ReactDOM.render(
           </CartProvider>
         </FilterProvider>
       </DataProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

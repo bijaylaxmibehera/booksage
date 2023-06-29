@@ -1,0 +1,56 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    /* font-size: 1.5rem; */
+
+}
+
+form {
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    padding: 1.2rem 1rem;
+    width: 50vw;
+    align-items: center;
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.50);
+    margin: 1rem;
+    border-radius: 3px;
+}
+label p{
+    font-size: 1.1rem;
+}
+.login-details{
+    padding: 5px 20px;
+    font-size: 1rem;
+    /* border: none; */
+    border: 1.5px solid rgb(176, 176, 176);
+    outline: none;
+    background:none ;
+    margin-bottom: 10px;
+}
+.login-details:focus{
+    border:1.5px solid rgb(80, 80, 239);
+}
+
+.login-btn,.testuser-btn,.signup-btn{
+    margin: 4px 0;  
+}
+.login-btn,.testuser-btn{
+    width: 34%;
+}
+.login-btn{
+    background-color: var(--darkOrange);
+}
+.testuser-btn,.signup-btn{
+    background-color: var(--secondary);
+}
+
+@media only screen and (min-width:768px) {}
+
+@media only screen and (min-width:1024px) {
+    .login-page {
+        /* width: 50vw; */
+        align-items: center;
+        margin:auto;
+    }
+}
