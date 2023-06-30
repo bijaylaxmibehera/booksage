@@ -1,30 +1,35 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Login.css";
 import { AuthConext } from "../../";
 
 export function Login() {
-  const { loginHandler } = useContext(AuthConext);
+  const { loginHandler} = useContext(AuthConext);
 
   const [userDetails, setUserDetails] = useState({ email: "", password: "" });
   const testUserDetails = {
     email: "bijaylaxmi790@gmail.com",
     password: "bijaylaxmi",
   };
- 
-  useEffect(() => {
-    (async () => {
-      loginHandler(userDetails.email, userDetails.password);
-    })();
-  }, [userDetails.email, userDetails.password]);
 
-  console.log(userDetails)
+  // useEffect(() => {
+  //   (async () => {
+  //     loginHandler(userDetails.email, userDetails.password);
+  //   })();
+  // }, [userDetails.email, userDetails.password]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    loginHandler(userDetails);
+  };
+
+  
   return (
     <>
       {/* <h1>Log in page</h1> */}
       <div className="login-page">
         <h3>Log in</h3>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           <label>
             <p>
               {" "}
@@ -37,7 +42,12 @@ export function Login() {
               className="login-details"
               name="email"
               required
-              onChange={(e)=>setUserDetails((userInput)=>({...userInput,email:e.target.value}))}
+              onChange={(e) =>
+                setUserDetails((userInput) => ({
+                  ...userInput,
+                  email: e.target.value,
+                }))
+              }
             />
           </label>
           <label>
@@ -52,7 +62,12 @@ export function Login() {
               className="login-details"
               name="password"
               required
-              onChange={(e)=>setUserDetails((userInput)=>({...userInput,password:e.target.value}))}
+              onChange={(e) =>
+                setUserDetails((userInput) => ({
+                  ...userInput,
+                  password: e.target.value,
+                }))
+              }
             />
           </label>
           <button className="login-btn btn" type="submit">

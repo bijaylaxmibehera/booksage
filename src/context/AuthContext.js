@@ -1,6 +1,6 @@
 import { createContext,useState } from "react";
 import { loginService } from "../services/loginService";
-import { signUpService } from "../services/signUpService";
+// import { signUpService } from "../services/signUpService";
 
 export const AuthConext=createContext();
 
@@ -8,7 +8,6 @@ export function AuthProvider({children}){
     const localStorageToken = JSON.parse(localStorage.getItem("loginDetails"));
     const [token, setToken] = useState(localStorageToken?.token);
     const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
-
 
     const loginHandler=async({email,password})=>{
         try{
@@ -31,7 +30,7 @@ export function AuthProvider({children}){
         }
     }
 
-    // console.log("Authcontext- token",token)
+    console.log("Authcontext- token",token)
     return (
         <>
         <AuthConext.Provider value={{loginHandler,token,currentUser}}>{children}</AuthConext.Provider>
